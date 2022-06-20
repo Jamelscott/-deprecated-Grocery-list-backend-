@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+var cors = require("cors");
 const body = require("body-parser");
 const path = require("path");
 const PORT = process.env.PORT || 3030;
@@ -8,12 +9,12 @@ const db = require("./config/database.js");
 
 //Database
 const { Sequelize } = require("sequelize");
-
-// // Option 3: Passing parameters separately (other dialects)
-// const db = new Sequelize("grocery", "jamelscott", "jjbean", {
-//   host: "localhost",
-//   dialect: "postgres",
-// });
+app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 //Test database
 db.authenticate()

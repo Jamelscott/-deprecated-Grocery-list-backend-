@@ -1,12 +1,12 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize');
 
 // Option 3: Passing parameters separately (other dialects)
 module.exports = new Sequelize(
-  "grocery",
-  "jamelscott",
-  process.env.SUPER_SECRET,
+  process.env.DB,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
   {
-    host: "localhost",
-    dialect: "postgres",
+    host: 'localhost',
+    dialect: 'postgres',
   }
 );
